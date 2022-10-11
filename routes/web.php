@@ -46,6 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     Route::resource('my-transaction', MyTransactionController::class)->only([
         'index', 'show',
     ]);
+    
     Route::middleware(['admin'])->group(function(){
         Route::resource('product', ProductController::class);
         Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([

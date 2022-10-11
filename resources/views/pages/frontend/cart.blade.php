@@ -223,7 +223,7 @@
                         class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                         >
                         <img
-                            src="/frontend/images/content/logo-midtrans.png"
+                            src="{{asset('/frontend/images/content/logo-midtrans.png')}}"
                             alt="Logo midtrans"
                             class="object-contain max-h-full"
                         />
@@ -237,7 +237,7 @@
                         class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                         >
                         <img
-                            src="/frontend/images/content/logo-mastercard.svg"
+                            src="{{ asset('/frontend/images/content/logo-mastercard.svg')}}"
                             alt="Logo mastercard"
                         />
                         </button>
@@ -250,7 +250,7 @@
                         class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                         >
                         <img
-                            src="/frontend/images/content/logo-bitcoin.svg"
+                            src="{{asset('/frontend/images/content/logo-bitcoin.svg')}}"
                             alt="Logo bitcoin"
                             class="object-contain max-h-full"
                         />
@@ -264,7 +264,7 @@
                         class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                         >
                         <img
-                            src="/frontend/images/content/logo-american-express.svg"
+                            src="{{asset('/frontend/images/content/logo-american-express.svg')}} "
                             alt="Logo american-logo-american-express"
                         />
                         </button>

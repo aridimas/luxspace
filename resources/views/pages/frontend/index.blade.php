@@ -42,7 +42,7 @@
               ></button>
             </div>
             <img
-              src="/frontend/images/content/image-section-1.png"
+              src="{{ asset('/frontend/images/content/image-section-1.png')}}"
               alt="hero 1"
               class="absolute inset-0 md:relative w-full h-full object-cover object-center"
             />
@@ -66,7 +66,7 @@
             >
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-1.png"
+                  src="{{asset('/frontend/images/content/image-catalog-1.png')}}"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />
@@ -86,7 +86,7 @@
             >
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-3.png"
+                  src="{{asset('/frontend/images/content/image-catalog-3.png')}}"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />
@@ -106,7 +106,7 @@
             >
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-4.png"
+                  src="{{asset('/frontend/images/content/image-catalog-4.png')}}"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />
@@ -124,7 +124,7 @@
             <div class="relative col-span-9 row-span-1 md:col-span-4 card">
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-2.png"
+                  src="{{asset('/frontend/images/content/image-catalog-2.png')}}"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />
@@ -214,18 +214,18 @@
           <div
             class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
           >
-            <img src="/frontend/images/content/logo-adobe.svg" alt="" class="mx-auto" />
+            <img src="{{asset('/frontend/images/content/logo-adobe.svg')}}" alt="" class="mx-auto" />
           </div>
           <div
             class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
           >
-            <img src="/frontend/images/content/logo-ikea.svg" alt="" class="mx-auto" />
+            <img src="{{asset('/frontend/images/content/logo-ikea.svg')}}" alt="" class="mx-auto" />
           </div>
           <div
             class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
           >
             <img
-              src="/frontend/images/content/logo-hermanmiller.svg"
+              src="{{asset('/frontend/images/content/logo-hermanmiller.svg')}}"
               alt=""
               class="mx-auto"
             />
@@ -233,7 +233,7 @@
           <div
             class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
           >
-            <img src="/frontend/images/content/logo-miele.svg" alt="" class="mx-auto" />
+            <img src="{{asset('/frontend/images/content/logo-miele.svg')}}" alt="" class="mx-auto" />
           </div>
         </div>
       </section>

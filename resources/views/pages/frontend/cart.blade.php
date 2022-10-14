@@ -187,7 +187,7 @@
                         class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                         >
                         <img
-                            src="/frontend/images/content/logo-fedex.svg"
+                            src="{{asset('/frontend/images/content/logo-fedex.svg')}}"
                             alt="Logo Fedex"
                             class="object-contain max-h-full"
                         />
@@ -201,7 +201,7 @@
                         class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                         >
                         <img
-                            src="/frontend/images/content/logo-dhl.svg"
+                            src="{{asset('/frontend/images/content/logo-dhl.svg')}}"
                             alt="Logo dhl"
                             class="object-contain max-h-full"
                         />

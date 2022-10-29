@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('roles');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -31,6 +32,7 @@ return new class extends Migration
             'id' => 1,
             'name' => 'admin1',
             'email' => 'admin@localhost',
+            'roles' => 'ADMIN',
             'email_verified_at' => null,
             'password' => Hash::make('admin123'),
             'remember_token' => null,

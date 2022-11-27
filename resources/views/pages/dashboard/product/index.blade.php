@@ -7,7 +7,7 @@
 
     <x-slot name="script">
         <script>
-            // AJAX Datatable
+            // AJAX Datatable id
             $(document).ready(function () {
             var datatable = $('#crudTable').DataTable({
                 ajax: {

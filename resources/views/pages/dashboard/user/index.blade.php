@@ -8,7 +8,7 @@
     <x-slot name="script">
         <script>
             // AJAX Datatable
-
+            $(document).ready(function () {
             var datatable = $('#crudTable').DataTable({
                 ajax: {
                     url: '{!! url()->current() !!}'
@@ -26,8 +26,18 @@
                         searchable:false,
                         width:'25%'
                     }
-                ]
-            })
+                ],
+                order:[[1,'asc']],
+                    
+            });
+            datatable.on('order.dt search.dt', function () {
+                let i = 1;
+        
+                datatable.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+                    this.data(i++);
+                });
+        }).draw();
+    });
         </script>
     </x-slot>
 

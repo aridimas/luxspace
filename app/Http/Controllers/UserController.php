@@ -22,12 +22,12 @@ class UserController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function($item){
                     return '
-                        <a href="'. route('dashboard.user.edit', $item->id) .'" class="bg-gray-500 text-black rounded-md px-2 py-1 m-2">
+                        <a href="'. route('dashboard.user.edit', $item->id) .'" class="bg-yellow-500 text-white rounded-md px-2 py-1 m-2">
                             Edit
                         </a>
                         <form class="inline-block" action="'. route('dashboard.user.destroy', $item->id) .'" method="POST">
-                            <button class="bg-red-500 text-black rounded-md px-2 py-1 m-2">
-                                Hapus
+                            <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">
+                                Delete
                             </button>
                         '. method_field('delete') . csrf_field() .'
                         </form>

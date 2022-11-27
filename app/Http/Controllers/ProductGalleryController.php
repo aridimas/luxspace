@@ -26,8 +26,8 @@ class ProductGalleryController extends Controller
                     return '
                         
                         <form class="inline-block" action="'. route('dashboard.gallery.destroy', $item->id) .'" method="POST">
-                            <button class="bg-red-500 text-black rounded-md px-2 py-1 m-2">
-                                Hapus
+                            <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">
+                                Delete
                             </button>
                         '. method_field('delete') . csrf_field() .'
                         </form>

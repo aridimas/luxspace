@@ -30,7 +30,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Product Name</label>
-                            <input type="text" value=" {{old('name' ?? $item->name)}} " name="name" placeholder="Product Name" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <input type="text" value="{{$item->name}}" name="name" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -42,7 +42,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Price</label>
-                            <input type="number" value=" {{old('price') ?? $item->price }} " name="price" placeholder="Product Price" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <input type="number" value="{{$item->price}}" name="price" placeholder="Product Price" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">

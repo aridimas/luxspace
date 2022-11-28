@@ -8,11 +8,22 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
             <div>
+                <x-jet-label for="roles" value="{{ __('Roles') }}" />
+                    {{ Form::select('roles', ['ADMIN', 'USER'], 'USER', ['id' => 'roles']) }} 
+            </div>
+            <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
+
+            {{-- <div>
+                <x-jet-label for="roles" value="{{ __('Roles') }}" />
+                <select id="roles" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" wire:model="roles" value="roles">
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="USER">USER</option>
+            </div> --}}
+             
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -28,6 +39,7 @@
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
+            
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">

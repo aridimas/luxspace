@@ -4,7 +4,21 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Fortify\Rules\Password;
 
+
+trait PasswordValidationRules
+{
+    /**
+     * Get the validation rules used to validate passwords.
+     *
+     * @return array
+     */
+    protected function passwordRules()
+    {
+        return ['required', 'string', new Password, 'confirmed'];
+    }
+}
 class UserRequest extends FormRequest
 {
     /**
@@ -28,7 +42,8 @@ class UserRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'roles' => 'required|string|max:255|in:USER,ADMIN'
-
+            
         ];
     }
+    
 }

@@ -10,7 +10,7 @@
             @csrf
             <div>
                 <x-jet-label for="roles" value="{{ __('Roles') }}" />
-                    {{ Form::select('roles', ['ADMIN', 'USER'], 'USER', ['id' => 'roles']) }} 
+                    {{ Form::select('roles', ['USER' => 'USER'], 'USER') }} 
             </div>
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -20,8 +20,6 @@
             {{-- <div>
                 <x-jet-label for="roles" value="{{ __('Roles') }}" />
                 <select id="roles" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" wire:model="roles" value="roles">
-                    <option value="ADMIN">ADMIN</option>
-                    <option value="USER">USER</option>
             </div> --}}
              
 

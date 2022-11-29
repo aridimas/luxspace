@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
+
 use App\Models\User;
 use Illuminate\Http\Request;
+use Laravel\Jetstream\Jetstream;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+
 
 class UserController extends Controller
 {
@@ -46,9 +52,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function create()
     {
-        //
+        return view('pages.dashboard.user.create');
     }
 
     /**
@@ -57,9 +64,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['password']=Hash::make($data['password']);
+
+        User::create($data);
+        return redirect()->route('dashboard.user.index'); 
     }
 
     /**

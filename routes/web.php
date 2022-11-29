@@ -56,7 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
             'index', 'show', 'edit', 'update'
         ]);
         Route::resource('user', UserController::class)->only([
-            'index', 'edit', 'update', 'destroy'
+            'index','create','store', 'edit', 'update', 'destroy'
         ]);
     });
 });

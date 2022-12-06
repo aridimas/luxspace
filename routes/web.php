@@ -58,5 +58,6 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('user', UserController::class)->only([
             'index','create','store', 'edit', 'update', 'destroy'
         ]);
+        Route::post('product/gallery', [ProductGalleryController::class, 'is_featured']);
     });
 });

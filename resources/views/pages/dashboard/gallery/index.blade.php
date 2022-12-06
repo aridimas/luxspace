@@ -1,11 +1,34 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             Product &raquo; {{$product->name}} &raquo; Gallery
         </h2>
     </x-slot>
 
     <x-slot name="script">
+        @csrf
+        <script>
+            function submit_form(is_featured,id){
+                var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '{{asset("dashboard/product/gallery")}}', true);
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log(this.responseText)
+                            if (this.responseText == 1) {
+                                alert("Update Success!");
+                                location.reload();
+                            } else {
+                                alert("Update Failed!");
+                                location.reload();
+                            }
+                        }
+                    };
+                    xhr.send('value='+is_featured+'&id='+id);
+                }
+        </script>
         <script>
             // AJAX Datatable
             $(document).ready(function () {
@@ -25,6 +48,7 @@
                         searchable:false,
                         width:'25%'
                     }
+                    
                 ],
                 order:[[1,'asc']],
                     
@@ -65,6 +89,7 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </div>
     
     {{-- <div class="py-12">

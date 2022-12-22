@@ -22,13 +22,12 @@ class CreateTransactionsTable extends Migration
             $table->string('email')->nullable();
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
-
-            $table->string('courier')->nullable();
             $table->string('payment')->default('MIDTRANS');
             $table->string('payment_url')->nullable();
 
             $table->bigInteger('total_price')->default(0);
             $table->string('status')->default('PENDING');
+            $table->enum('payment_status', ['Unpaid', 'Paid']);
 
             $table->softDeletes();
 

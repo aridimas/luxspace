@@ -7,6 +7,8 @@ use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class TransactionController extends Controller
 {
@@ -18,15 +20,15 @@ class TransactionController extends Controller
     public function index()
     {
         if(request()->ajax()){
-            $query = Transaction::query();  
+            $query = Transaction::orderBy('id', 'DESC')->get(); 
                  
             return DataTables::of($query)
                 ->addColumn('action', function($item){
                     return '
-                        <a href="'. route('dashboard.transaction.show', $item->id) .'" class="bg-blue-500 text-white rounded-md px-2 py-1 m-2">
+                        <a href="'. route('dashboard.transaction.show', $item->id) .'" class="bg-blue-500 text-white rounded-md px-2 py-1 mr-2">
                             Show
                         </a>
-                        <a href="'. route('dashboard.transaction.edit', $item->id) .'" class="bg-yellow-500 text-white rounded-md px-2 py-1 m-2">
+                        <a href="'. route('dashboard.transaction.edit', $item->id) .'" class="bg-yellow-500 text-white rounded-md px-2 py-1 mr-2">
                             Edit
                         </a>
                         
@@ -36,6 +38,10 @@ class TransactionController extends Controller
                 {
                     return number_format($item->total_price);
                 })
+                ->editColumn('payment_status', function($item){
+                    return ($item->payment_status == "paid") ? "<strong class='text-green-500'>PAID</strong>" : "<strong class='text-red-500 '>UNPAID</strong>" ;
+                })
+                ->escapeColumns([])
                 ->rawColumns(['action'])
                 ->make();
            }
@@ -111,12 +117,13 @@ class TransactionController extends Controller
      */
     public function update(TransactionRequest $request, Transaction $transaction)
     {
-        $data = $request->all();
+        $data = $request->all(); 
 
         $transaction->update($data);
         
         return redirect()->route('dashboard.transaction.index'); 
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -128,4 +135,5 @@ class TransactionController extends Controller
     {
         //
     }
+    
 }

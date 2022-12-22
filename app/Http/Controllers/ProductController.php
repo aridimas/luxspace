@@ -18,19 +18,19 @@ class ProductController extends Controller
     public function index()
     {
        if(request()->ajax()){
-        $query = Product::query();  
-             
+        $query = Product::orderBy('id', 'DESC')->get(); 
+        // echo "<pre>";dd($query);
         return DataTables::of($query)
             ->addColumn('action', function($item){
                 return '
-                    <a href="'. route('dashboard.product.gallery.index', $item->id) .'" class="bg-blue-500 text-white rounded-md px-2 py-1 m-2">
+                    <a href="'. route('dashboard.product.gallery.index', $item->id) .'" class="bg-blue-500 text-white rounded-md px-2 py-1 mr-2 ">
                         Gallery
                     </a>
-                    <a href="'. route('dashboard.product.edit', $item->id) .'" class="bg-yellow-500 text-white rounded-md px-2 py-1 m-2">
+                    <a href="'. route('dashboard.product.edit', $item->id) .'" class="bg-yellow-500 text-white rounded-md px-2 py-1 mr-2">
                         Edit
                     </a>
                     <form class="inline-block" action="'. route('dashboard.product.destroy', $item->id) .'" method="POST">
-                        <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">
+                        <button class="bg-red-500 text-white rounded-md px-2 py-1 mr-2">
                             Hapus
                         </button>
                     '. method_field('delete') . csrf_field() .'

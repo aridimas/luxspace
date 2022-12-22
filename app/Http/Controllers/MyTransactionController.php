@@ -32,6 +32,10 @@ class MyTransactionController extends Controller
                 {
                     return number_format($item->total_price);
                 })
+                ->editColumn('payment_status', function($item){
+                    return ($item->payment_status == "paid") ? "<strong class='text-green-500'>PAID</strong>" : "<strong class='text-red-500 '>UNPAID</strong>" ;
+                })
+                ->escapeColumns([])
                 ->rawColumns(['action'])
                 ->make();
            }

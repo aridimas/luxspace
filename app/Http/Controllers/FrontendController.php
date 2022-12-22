@@ -22,6 +22,25 @@ class FrontendController extends Controller
         return view ('pages.frontend.index', compact('products'));
     }   
 
+    public function about(Request $request)
+    {
+        return view ('pages.frontend.about');
+    }
+
+    public function catalog(Request $request)
+    {
+        return view ('pages.frontend.catalog');
+    }
+
+    public function showcase(Request $request)
+    {
+        $products = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
+        $products2 = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
+        $products3 = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
+        $products4 = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
+        return view ('pages.frontend.showcase', compact('products','products2','products3','products4'));
+    }
+
 
     public function details(Request $request, $slug)
     {
@@ -64,6 +83,7 @@ class FrontendController extends Controller
         //add to Transaction data
         $data['users_id'] = Auth::user()->id;
         $data['total_price'] = $carts->sum('product.price');
+        
 
         //create transaction
         $transaction = Transaction::create($data);
@@ -89,7 +109,7 @@ class FrontendController extends Controller
         //Setup Variable Midtrans
         $midtrans = [
             'transaction_details' => [
-                'order_id' => 'LUX-'.$transaction->id,
+                'order_id' => $transaction->id,
                 'gross_amount' => (int) $transaction->total_price
             ],
             'customer_details' => [
@@ -118,5 +138,16 @@ class FrontendController extends Controller
     public function  success(Request $request)
     {
         return view ('pages.frontend.success');
+    }
+    public function callback(Request $request, Transaction $transaction){
+        $serverKey = config('services.midtrans.serverKey');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+        if($hashed == $request->signature_key){
+            if($request->transaction_status == 'settlement'){
+                $transaction = Transaction::find($request->order_id);
+                $transaction->update(['payment_status' => 'Paid']);
+            }
+        }
+
     }
 }

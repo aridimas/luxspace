@@ -15,18 +15,24 @@
                 },
                 columns: 
                 [
-                    { data:'id', name:'id', width :'5%'},
+                    { data:'id', name:'id', width :'5%' , "className": "dt-center"},
                     { data:'name', name:'name'},
-                    { data:'price', name:'price'},
-                    { 
-                        data:'action',
+                    { data:'price', name:'price', "className": "dt-center"},
+                    { data:'created_at', name:'created_at', "className": "dt-center", render: function(data, type, row){
+                        if(type === "sort" || type === "type"){
+                            return data;
+                        }
+                        return "<strong>Create</strong>: " + moment(data.created_at).format("YYYY/MM/DD HH:mm") + "<br/><strong>Update</strong>: " + moment(data.updated_at).format("YYYY/MM/DD HH:mm")
+                        }},
+                    {   
+                        data:'action', "className": "dt-center", 
                         name:'action',
                         orderable:false,
                         searchable:false,
                         width:'25%'
                     },
                 ],
-                order:[[1,'asc']],
+                order:[[4,'asc']],
                     
             });
             datatable.on('order.dt search.dt', function () {
@@ -57,6 +63,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Harga</th>
+                                <th>Created At</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

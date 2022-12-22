@@ -16,21 +16,27 @@
                 },
                 columns: 
                 [
-                    { data:'id', name:'id', width :'5%'},
+                    { data:'id', name:'id', width :'5%', "className": "dt-center"},
                     { data:'name', name:'name'},
-                    { data:'phone', name:'phone'},
-                    { data:'courier', name:'courier'},
-                    { data:'total_price', name:'total_price'},
-                    { data:'status', name:'status'},
-                    { 
-                        data:'action',
+                    { data:'phone', name:'phone', "className": "dt-center"},
+                    { data:'total_price', name:'total_price', "className": "dt-center"},
+                    { data:'status', name:'status', "className": "dt-center", render: function(data,type,row){return data.toUpperCase()}},
+                    { data:'payment_status', name:'payment_status', "className": "dt-center"},
+                    { data:'created_at', name:'created_at', "className": "dt-center", render: function(data, type, row){
+                        if(type === "sort" || type === "type"){
+                            return data;
+                        }
+                        return "<strong>Create</strong>: " + moment(data.created_at).format("YYYY/MM/DD HH:mm") + "<br/><strong>Update</strong>: " + moment(data.updated_at).format("YYYY/MM/DD HH:mm")
+                        }},
+                    {   
+                        data:'action', "className": "dt-center",
                         name:'action',
                         orderable:false,
                         searchable:false,
                         width:'25%',
                     }
                 ],
-                order:[[1,'asc']],
+                order:[[7,'desc']],
                     
             });
             datatable.on('order.dt search.dt', function () {
@@ -55,9 +61,10 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Telepon</th>
-                                <th>Kurir</th>
-                                <th>Total Harga</th>
-                                <th>Status</th>
+                                <th>Harga</th>
+                                <th>Pengiriman</th>
+                                <th>Payment</th>
+                                <th>Date</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

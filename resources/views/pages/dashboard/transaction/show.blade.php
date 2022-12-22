@@ -50,16 +50,12 @@
                                 <td class="border px-6 py-4">{{$transaction->phone}}</td>
                             </tr>
                             <tr>
-                                <th class="border px-6 py-4 text-right">Courier</th>
-                                <td class="border px-6 py-4">{{$transaction->courier}}</td>
-                            </tr>
-                            <tr>
                                 <th class="border px-6 py-4 text-right">Payment</th>
                                 <td class="border px-6 py-4">{{$transaction->payment}}</td>
                             </tr>
                             <tr>
                                 <th class="border px-6 py-4 text-right">Payment URL</th>
-                                <td class="border px-6 py-4">{{$transaction->payment_url}}</td>
+                                <td class="border px-6 py-4"><a class="text-blue-700" href="{{ $transaction->payment_url }}" target="_blank">{{ $transaction->payment_url }}</a></td>
                             </tr>
                             <tr>
                                 <th class="border px-6 py-4 text-right">Total Price</th>
@@ -67,7 +63,11 @@
                             </tr>
                             <tr>
                                 <th class="border px-6 py-4 text-right">Status</th>
-                                <td class="border px-6 py-4">{{$transaction->status}}</td>
+                                <td class="border px-6 py-4">{{strtoupper($transaction->status)}}</td>
+                            </tr>
+                            <tr>
+                                <th class="border px-6 py-4 text-right">Payment Status</th>
+                                <td class="border px-6 py-4">{!!($transaction->payment_status == "paid") ? "<strong class='text-green-500'>PAID</strong>" : "<strong class='text-red-500 '>UNPAID</strong>"!!}</td>
                             </tr>
                         </tbody>
                     </table>

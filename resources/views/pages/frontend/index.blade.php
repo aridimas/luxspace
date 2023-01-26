@@ -7,11 +7,14 @@
           class="w-full absolute z-20 inset-0 md:relative md:w-1/2 text-center flex flex-col justify-center hero-caption"
         >
           <h1 class="text-3xl md:text-5xl leading-tight font-semibold">
-            The Room <br class="" />You've Dreaming
+            @foreach ($sitesetting as $frontend_setting)
+            {{ $frontend_setting->site_name }}
+            @endforeach
           </h1>
           <h2 class="px-8 text-base md:px-0 md:text-lg my-6 tracking-wide">
-            Kami menyediakan furniture berkelas yang
-            <br class="hidden lg:block" />membuat ruangan terasa homey
+            @foreach ($sitesetting as $frontend_setting)
+            {{ $frontend_setting->site_description }}
+            @endforeach
           </h2>
           <div>
             <a

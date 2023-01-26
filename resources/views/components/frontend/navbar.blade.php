@@ -5,9 +5,9 @@
         <div class="w-56 items-center flex">
           <a href="{{ route('index') }}">
             <img
-            src="{{asset('/frontend/images/content/logo.png')}}"
-            alt="Luxspace | Fulfill your house with beautiful furniture"
-            />
+            src="@foreach ($sitesetting as $logo)
+            {{ $logo->logo_url }}"/>
+            @endforeach
           </a>
         </div>
         <div class="w-full"></div>
@@ -17,12 +17,7 @@
             id="menu"
           >
             <li class="mx-3 py-6 md:py-0">
-              <a href="#" class="text-black {{\Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black'}} hover:underline"
-                >Showcase</a
-              >
-            </li>
-            <li class="mx-3 py-6 md:py-0">
-              <a href="#" class="text-black {{\Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black'}} hover:underline"
+              <a href="{{ route('catalog') }}" class="text-black {{\Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black'}} hover:underline"
                 >Catalog</a
               >
             </li>

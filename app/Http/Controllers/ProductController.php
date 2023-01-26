@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
@@ -18,8 +19,8 @@ class ProductController extends Controller
     public function index()
     {
        if(request()->ajax()){
-        $query = Product::orderBy('id', 'DESC')->get(); 
-        // echo "<pre>";dd($query);
+        $query = Product::with('category')->orderBy('id', 'DESC')->get(); 
+            
         return DataTables::of($query)
             ->addColumn('action', function($item){
                 return '
@@ -54,9 +55,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category)
     {
-        return view('pages.dashboard.product.create');
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('pages.dashboard.product.create', compact('categories'));
     }
 
     /**
@@ -65,14 +67,14 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request, Category $category)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
 
         Product::create($data);
         
-        return redirect()->route('dashboard.product.index');
+        return redirect()->route('dashboard.product.index', $category->id);
     }
 
     /**
@@ -92,12 +94,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product,Category $category )
     {
-        return view('pages.dashboard.product.edit', // bisa jg menggunakan = compact ('product')
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('pages.dashboard.product.edit',  // bisa jg menggunakan = compact ('product')
          [
            'item' => $product
-         ]
+           
+         ], compact('categories')
     );
     }
 
@@ -108,14 +112,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product, Category $category)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
 
         $product->update($data);
         
-        return redirect()->route('dashboard.product.index');
+        return redirect()->route('dashboard.product.index', $category->id);
     }
 
     /**

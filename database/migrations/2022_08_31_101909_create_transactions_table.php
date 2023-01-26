@@ -26,7 +26,7 @@ class CreateTransactionsTable extends Migration
             $table->string('payment_url')->nullable();
 
             $table->bigInteger('total_price')->default(0);
-            $table->string('status')->default('PENDING');
+            $table->string('status')->default('pending');
             $table->enum('payment_status', ['Unpaid', 'Paid']);
 
             $table->softDeletes();

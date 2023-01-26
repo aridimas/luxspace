@@ -12,14 +12,16 @@ use Illuminate\Http\Request;
 use App\Models\TransactionItem;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
+use App\Models\SiteSetting;
 
 class FrontendController extends Controller
 {
     public function index(Request $request)
     {
+        $sitesetting = SiteSetting::get();
         $products = Product::with(['galleries'])->latest()->get();
 
-        return view ('pages.frontend.index', compact('products'));
+        return view ('pages.frontend.index', compact('products','sitesetting'));
     }   
 
     public function about(Request $request)
@@ -29,16 +31,12 @@ class FrontendController extends Controller
 
     public function catalog(Request $request)
     {
-        return view ('pages.frontend.catalog');
-    }
-
-    public function showcase(Request $request)
-    {
-        $products = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
-        $products2 = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
-        $products3 = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
-        $products4 = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
-        return view ('pages.frontend.showcase', compact('products','products2','products3','products4'));
+        $sitesetting = SiteSetting::get();
+        $products = Product::with(['galleries'])->where('categories_id',2)->inRandomOrder()->limit(4)->get();
+        $products2 = Product::with(['galleries'])->where('categories_id',1)->inRandomOrder()->limit(4)->get();
+        $products3 = Product::with(['galleries'])->inRandomOrder()->paginate(9);
+       
+        return view ('pages.frontend.catalog', compact('products','products2','products3','sitesetting'));
     }
 
 

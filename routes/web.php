@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MyTransactionController;
 use App\Http\Controllers\ProductGalleryController;
+use App\Http\Controllers\SiteSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,6 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
-Route::get('/showcase', [FrontendController::class, 'showcase'])->name('showcase');
 
 
 // Route::middleware([
@@ -56,11 +57,17 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
             'index', 'create', 'store', 'destroy'
         ]);
+        Route::resource('category', CategoryController::class)->only([
+            'index', 'create', 'store', 'edit', 'destroy'
+        ]);
         Route::resource('transaction', TransactionController::class)->only([
             'index', 'show', 'edit', 'update'
         ]);
         Route::resource('user', UserController::class)->only([
             'index','create','store', 'edit', 'update', 'destroy'
+        ]);
+        Route::resource('sitesetting', SiteSettingController::class)->only([
+            'index','edit', 'create', 'store', 'update'
         ]);
         Route::post('product/gallery', [ProductGalleryController::class, 'is_featured']);
     });

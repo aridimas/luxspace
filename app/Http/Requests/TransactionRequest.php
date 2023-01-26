@@ -25,7 +25,7 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'status' => 'in:PENDING,SUCCESS,CANCELED,FAILED,SHIPPING,SHIPPED'
+            'status' => 'in:pending,shipping,shipped,failed'
         ];
     }
 }

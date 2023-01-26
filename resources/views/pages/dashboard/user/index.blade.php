@@ -15,12 +15,12 @@
                 },
                 columns: 
                 [
-                    { data:'id', name:'id', width :'5%'},
-                    { data:'name', name:'name'},
-                    { data:'email', name:'email'},
-                    { data:'roles', name:'roles'},
+                    { data:'id', name:'id', width :'5%', "className": "dt-center"},
+                    { data:'name', name:'name',},
+                    { data:'email', name:'email', "className": "dt-center"},
+                    { data:'roles', name:'roles', "className": "dt-center"},
                     { 
-                        data:'action',
+                        data:'action', "className": "dt-center",
                         name:'action',
                         orderable:false,
                         searchable:false,

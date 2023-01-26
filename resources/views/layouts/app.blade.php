@@ -82,6 +82,8 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+        <script src="//cdn.datatables.net/plug-ins/1.10.11/sorting/datetime-moment.js"></script>
 
     </head>
     <body class="font-sans antialiased">
@@ -108,7 +110,7 @@
         @stack('modals')
 
         @livewireScripts
-        <!--- Tambahkan setelah @livewireScripts --->
+        
         {{ $script ?? '' }}
     </body>
 </html>

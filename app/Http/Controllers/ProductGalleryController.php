@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\ProductGallery;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Str;
 
 class ProductGalleryController extends Controller
 {

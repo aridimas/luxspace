@@ -7,8 +7,6 @@ use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Midtrans\Config;
-use Midtrans\Snap;
 
 class TransactionController extends Controller
 {

@@ -18,6 +18,7 @@
                     { data:'id', name:'id', width :'5%' , "className": "dt-center"},
                     { data:'name', name:'name'},
                     { data:'price', name:'price', "className": "dt-center"},
+                    { data:'category.name', name:'category.name', "className": "dt-center"},
                     { data:'created_at', name:'created_at', "className": "dt-center", render: function(data, type, row){
                         if(type === "sort" || type === "type"){
                             return data;
@@ -32,7 +33,7 @@
                         width:'25%'
                     },
                 ],
-                order:[[4,'asc']],
+                order:[[5,'asc']],
                     
             });
             datatable.on('order.dt search.dt', function () {
@@ -63,6 +64,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Harga</th>
+                                <th>Category Name</th>
                                 <th>Created At</th>
                                 <th>Aksi</th>
                             </tr>

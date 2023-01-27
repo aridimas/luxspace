@@ -10,8 +10,10 @@ class SiteSetting extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public $table = "site_settings";
+
     protected $fillable = [
-        'site_name','site_description', 'logo_url', 'thumbnail_url', 'icon_url', 'social_media', 'is_featured'
+        'site_name','site_description', 'logo_url', 'thumbnail_url', 'icon_url', 'facebook', 'instagram', 'twitter', 'whatsapp', 'email',
     ];
     
     // protected $table = 'form_multiple_upload';

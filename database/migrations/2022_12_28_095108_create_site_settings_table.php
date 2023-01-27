@@ -26,7 +26,6 @@ class CreateSiteSettingsTable extends Migration
             $table->string('twitter')->nullable();            
             $table->string('whatsapp')->nullable();            
             $table->string('email')->nullable();
-            
             $table->timestamps();
         });
 

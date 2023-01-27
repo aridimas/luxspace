@@ -29,7 +29,7 @@ class CreateSiteSettingsTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('site_setting')->insert([
+        DB::table('site_settings')->insert([
             'id' => 1,
             'site_name' => 'Luxspace',
             'site_description' => 'Merupakan tempat jual beli perabotan',

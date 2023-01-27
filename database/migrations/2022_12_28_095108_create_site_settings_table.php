@@ -42,7 +42,7 @@ class CreateSiteSettingsTable extends Migration
             'twitter' => 'www.twitter.com',
             'whatsapp' => 'wa.me/081248888888',
             'email' => 'admin@localbro',
-            'deleted_at' => null,
+            'deleted_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
 

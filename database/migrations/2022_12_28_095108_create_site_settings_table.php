@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateSiteSettingsTable extends Migration
 {
@@ -38,6 +38,7 @@ class CreateSiteSettingsTable extends Migration
             'iconurl' =>'storage/icon/icon.jpg',
             'thumbnail' => 'storage/thumbnail/thumbnail.jpg',
             'facebook' => 'www.facebook.com',
+            'instagram' => 'www.instagram.com',
             'twitter' => 'www.twitter.com',
             'whatsapp' => 'wa.me/081248888888',
             'email' => 'admin@localbro',

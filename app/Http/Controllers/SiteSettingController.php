@@ -59,7 +59,6 @@ class SiteSettingController extends Controller
     public function store(SiteSettingRequest $request, SiteSetting $sitesetting)
     {
         $data = $request->all();
-        $files = $request->file('logos','icons','thumbnails');
 
         $asd['site_name'] = $request->site_name;
         $asd['site_description'] = $request->site_description;
@@ -68,9 +67,11 @@ class SiteSettingController extends Controller
         $asd['twitter'] = $request->twitter;
         $asd['whatsapp'] = $request->whatsapp;
         $asd['email'] = $request->email;
-        if($request->hasFile('logos','icons','thumbnails'))        
+
+        $files1 = $request->file('logos');
+        if($request->hasFile('logos'))   
         {
-            foreach ($files as $logo) {
+            foreach ($files1 as $logo) {
                 $path_logo = $logo->storeAs('public/logo', 'logo.jpg');
                 $asd['logo_url'] =  str_replace('public/','storage/',$path_logo);
                 // $asd = SiteSetting::insert([ 
@@ -78,15 +79,25 @@ class SiteSettingController extends Controller
                 // ]);
                 // dd($asd);
             }
-            foreach ($files as $icon) {
+            $update = SiteSetting::where('id', 1)->update($asd);
+        }
+        $files2 = $request->file('icons');
+        if($request->hasFile('icons'))  
+        {
+            foreach ($files2 as $icon) {
                 $path_icon = $icon->storeAs('public/icon', 'icon.jpg');
                 $asd['icon_url'] =  str_replace('public/','storage/',$path_icon);
                 // $cek = SiteSetting::insert([ 
                 //     'icon_url'=>$path
                 // ]);
                 // dd($cek);
-            }
-            foreach ($files as $thumbnail) {
+            } 
+            $update = SiteSetting::where('id', 1)->update($asd);
+        }
+        $files3 = $request->file('thumbnails');
+        if($request->hasFile('thumbnails'))        
+        {
+            foreach ($files3 as $thumbnail) {
                 $path_thumbnail = $thumbnail->storeAs('public/thumbnail', 'thumbnail.jpg');
                 $asd['thumbnail_url'] = str_replace('public/','storage/',$path_thumbnail);
                 // SiteSetting::insert([ 

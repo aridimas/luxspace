@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Product &raquo; @foreach ($sitesetting1 as $name)
+            Site &raquo; @foreach ($sitesetting1 as $name)
             {{ $name->site_name }}
-            @endforeach &raquo; Edit
+            @endforeach &raquo; Settings
         </h2>
     </x-slot>
 

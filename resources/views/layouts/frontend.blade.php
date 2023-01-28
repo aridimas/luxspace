@@ -4,21 +4,16 @@
     <meta charset="utf-8" />
     <title>LuxSpace</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="@foreach ($sitesetting as $name){{ $name->site_name }}"/>
-    @endforeach
-    <meta name="description" content="@foreach ($sitesetting as $description){{ $description->site_description }}"/>
-    @endforeach
+    <meta property="og:title" content="@foreach ($sitesetting as $name){{ $name->site_name }}"/>@endforeach
+    <meta name="description" content="@foreach ($sitesetting as $description){{ $description->site_description }}"/>@endforeach
     <meta property="og:url" content="www.luxspace.com" />
-    <meta property="og:image" content="@foreach ($sitesetting as $thumbnail){{ $thumbnail->thumbnail_url }}"/>
-    @endforeach
-    <meta property="og:image:alt" content="@foreach ($sitesetting as $name){{ $name->site_name }}"/>
-    @endforeach
+    <meta property="og:image" content="@foreach ($sitesetting as $thumbnail){{ $thumbnail->thumbnail_url }}"/>@endforeach
+    <meta property="og:image:alt" content="@foreach ($sitesetting as $name){{ $name->site_name }}"/>@endforeach
     <!-- TYPE BELOW IS PROBABLY: 'website' or 'article' or look on https://ogp.me/#types -->
     <meta property="og:type" content='website'/>
 
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" href="@foreach ($sitesetting as $icon){{ $icon->icon_url }}"/>
-    @endforeach
+    <link rel="apple-touch-icon" href="@foreach ($sitesetting as $icon){{ $icon->icon_url }}"/>@endforeach
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="{{url('/frontend/css/app.css')}}" />

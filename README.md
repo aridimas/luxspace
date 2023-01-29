@@ -5,10 +5,11 @@
 - Clone project
 ```
 git clone https://github.com/aridimas/luxspace.git
-cd luxspace
 ```
+- cd luxspace
 - Run `composer install` on your cmd or terminal
 - Copy `.env.example` file to `.env` on the root folder.
 - Update Database Configuration
 - Run `php artisan key:generate`
 - Run `php artisan migrate`
+- Run `php artisan storage:link`

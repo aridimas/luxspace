@@ -149,4 +149,10 @@ class FrontendController extends Controller
         }
 
     }
+    public function category(Request $request)
+    {
+        $sitesetting = SiteSetting::get();
+        $products = Product::with(['galleries'])->inRandomOrder()->paginate(9);
+        return view ('pages.frontend.category', compact('products','sitesetting'));
+    }
 }

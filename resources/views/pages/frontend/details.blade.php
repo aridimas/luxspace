@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="flex-1 px-4 md:p-6">
-            <h2 class="text-5xl font-semibold">{{$product->name}}</h2>
+            <h2 class="text-5xl font-semibold mb-2">{{$product->name}}</h2>
             <p class="text-xl">IDR {{number_format($product->price)}}</p>
   
             <form action=" {{route('cart-add', $product->id)}} " method="POST">

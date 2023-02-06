@@ -42,9 +42,10 @@ class FrontendController extends Controller
 
     public function details(Request $request, $slug)
     {
+        $sitesetting = SiteSetting::get();
         $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();
         $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
-        return view ('pages.frontend.details', compact('product','recommendations'));
+        return view ('pages.frontend.details', compact('product','recommendations','sitesetting'));
     }
     
     public function cartAdd(Request $request, $id)

@@ -3,22 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>LuxSpace</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="@foreach ($sitesetting as $name){{ $name->site_name }}"/>
-    @endforeach
-    <meta name="description" content="@foreach ($sitesetting as $description){{ $description->site_description }}"/>
-    @endforeach
-    <meta property="og:url" content="www.luxspace.com" />
-    <meta property="og:image" content="@foreach ($sitesetting as $thumbnail){{ $thumbnail->thumbnail_url }}"/>
-    @endforeach
-    <meta property="og:image:alt" content="@foreach ($sitesetting as $name){{ $name->site_name }}"/>
-    @endforeach
-    <!-- TYPE BELOW IS PROBABLY: 'website' or 'article' or look on https://ogp.me/#types -->
-    <meta property="og:type" content='website'/>
-
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" href="@foreach ($sitesetting as $icon){{ $icon->icon_url }}"/>
-    @endforeach
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{$sitesetting[0]['site_description']}}"/>
+    <meta property="og:title" content="{{ $sitesetting[0]['site_name'] }}"/>
+    <meta property="og:url" content="{{ route('index') }}" />
+    <meta property="og:image" content="{{ route('index') }}/{{ $sitesetting[0]['thumbnail_url'] }}"/>
+    <meta property="og:image:alt" content="{{ $sitesetting[0]['site_name'] }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="{{$sitesetting[0]['site_description']}}" />
+    <link rel="manifest" href="site.webmanifest"/>
+    <link rel="apple-touch-icon" href="{{ route('index') }}/{{ $sitesetting[0]->icon_url }}"/>
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="{{url('/frontend/css/app.css')}}" />
@@ -36,10 +30,8 @@
   <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="{{url('/frontend/css/style.css')}}" type="text/css" media="all"/>
   <link rel="stylesheet" href="{{url('css/custom.css')}}" type="text/css" media="all"/>
-    <link rel="icon" href="{{url('/storage/icon/icon.jpg')}}" />
-
+    <link rel="icon" href="{{ route('index')}}/{{ $sitesetting[0]['icon_url'] }}" />
     <meta name="theme-color" content="#000" />
-    <link rel="icon" href="{{url('/storage/icon/icon.jpg')}}">
     <link href="{{url('/frontend/css/app.minify.css')}}" rel="stylesheet">
   </head>
 

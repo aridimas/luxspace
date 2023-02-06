@@ -47,6 +47,12 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Logo Website</label>
                             <input type="file" multiple="multiple" name="logos[]"  accept="image/*" placeholder="logo" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         </div>
+                    @if ((!is_null($sitesetting1[0]['logo_url'])) && (!empty($sitesetting1[0]['logo_url'])))
+                        <div class="w-full px-3">
+                            <img src="{{ route('index') }}/{{ $sitesetting1[0]['logo_url'] }}" class="img img-responsive mt-3">
+                        </div>
+                    @endif
+
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
@@ -104,7 +110,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                                Save Site Setting
+                                Save
                             </button>
                         </div>
                     </div>

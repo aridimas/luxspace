@@ -3,9 +3,7 @@
     <div class="border-t border-b border-gray-200 py-12 mt-16 px-4">
       <div class="flex justify-center mb-8">
         <img style="width: 3%; height:2%"
-            src="@foreach ($sitesetting as $logo)
-            {{ $logo->logo_url }}"/>
-            @endforeach
+            src="{{ route('index') }}/{{ $sitesetting[0]['logo_url'] }}"/>
       </div>
       <aside class="container mx-auto">
         <div class="flex flex-wrap -mx-4 justify-center">
@@ -57,35 +55,25 @@
               </li>
             </ul>
           </div>
-          <div class="px-4 w-full md:w-3/12 mb-4 md:mb-0">
+          <div class="px-4 w-full md:w-3/12 mb-4 md:mb-0 text-center">
             <h5 class="text-lg font-semibold mb-2 relative">
               Social Media & Contact Us
             </h5>
             
             
-            <a href="@foreach ($sitesetting as $socialmedia)
-            {{ $socialmedia->facebook }}">
-            @endforeach
+            <a href="http://{{ $sitesetting[0]['facebook'] }}">
             <i class="fa fa-facebook"></i></a>
               
-            <a href="@foreach ($sitesetting as $socialmedia)
-            {{ $socialmedia->instagram }}">
-            @endforeach
+            <a href="http://{{ $sitesetting[0]['instagram'] }}">
             <i class="fa fa-instagram"></i></a>
             
-            <a href="@foreach ($sitesetting as $socialmedia)
-            {{ $socialmedia->twitter }}">
-            @endforeach
+            <a href="http://{{ $sitesetting[0]['twitter'] }}">
             <i class="fa fa-twitter"></i></a>
 
-            <a href="@foreach ($sitesetting as $socialmedia)
-            {{ $socialmedia->whatsapp }}">
-            @endforeach
+            <a href="http://{{ $sitesetting[0]['whatsapp'] }}">
             <i class="fa fa-whatsapp"></i></a>
 
-            <a href="mailto:@foreach ($sitesetting as $socialmedia)
-            {{ $socialmedia->email }}">
-            @endforeach
+            <a href="mailto:{{ $sitesetting[0]['email'] }}">
             <i class="fa fa-envelope"></i></a>
           </div>
         </div>

@@ -111,7 +111,7 @@ class CategoryController extends Controller
 
         $category->update($data);
         
-        return redirect()->route('dashboard.product.index');
+        return redirect()->route('dashboard.category.index');
     }
 
     /**

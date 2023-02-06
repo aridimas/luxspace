@@ -58,7 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
             'index', 'create', 'store', 'destroy'
         ]);
         Route::resource('category', CategoryController::class)->only([
-            'index', 'create', 'store', 'edit', 'destroy'
+            'index', 'create', 'store', 'edit', 'update', 'destroy'
         ]);
         Route::resource('transaction', TransactionController::class)->only([
             'index', 'show', 'edit', 'update'

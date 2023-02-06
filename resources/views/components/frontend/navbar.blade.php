@@ -5,7 +5,7 @@
         <div class="w-56 items-center flex">
           <a href="{{ route('index') }}">
             <img
-            src="@foreach ($sitesetting as $logo){{ $logo->logo_url }}"/>@endforeach
+            src="{{ route('index') }}/{{ $sitesetting[0]['logo_url']}}"/>
           </a>
         </div>
         <div class="w-full"></div>

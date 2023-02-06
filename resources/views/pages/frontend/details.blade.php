@@ -9,7 +9,7 @@
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">Office Room</a>
+              <a href="#">{{ $product->name}}</a>
             </li>
             <li>
               <a href="#" aria-label="current-page">Details</a>
@@ -57,8 +57,9 @@
             </div>
           </div>
           <div class="flex-1 px-4 md:p-6">
-            <h2 class="text-5xl font-semibold mb-2">{{$product->name}}</h2>
+            <h2 class="text-5xl font-semibold mb-4">{{$product->name}}</h2>
             <p class="text-xl">IDR {{number_format($product->price)}}</p>
+            <h6 class="text-xl font-semibold mb-4">Kategori : {{ $product->category->name }}</h6>
   
             <form action=" {{route('cart-add', $product->id)}} " method="POST">
               @csrf

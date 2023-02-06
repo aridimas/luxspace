@@ -7,14 +7,10 @@
           class="w-full absolute z-20 inset-0 md:relative md:w-1/2 text-center flex flex-col justify-center hero-caption"
         >
           <h1 class="text-3xl md:text-5xl leading-tight font-semibold">
-            @foreach ($sitesetting as $frontend_setting)
-            {{ $frontend_setting->site_name }}
-            @endforeach
+            {{ $sitesetting[0]['site_name'] }}
           </h1>
           <h2 class="px-8 text-base md:px-0 md:text-lg my-6 tracking-wide">
-            @foreach ($sitesetting as $frontend_setting)
-            {{ $frontend_setting->site_description }}
-            @endforeach
+            {{ $sitesetting[0]['site_description'] }}
           </h2>
           <div>
             <a

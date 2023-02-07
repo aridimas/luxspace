@@ -9,7 +9,7 @@
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="{{ route('index') }}/category">{{ $product->category->name }}</a>
+              <a href="{{ route('category', $product->category->slug) }}">{{ $product->category->name }}</a>
             </li>
             <li>
               <a href="#">{{ $product->name}}</a>

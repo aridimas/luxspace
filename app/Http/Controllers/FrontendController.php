@@ -7,12 +7,13 @@ use Midtrans\Snap;
 use App\Models\Cart;
 use Midtrans\Config;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\SiteSetting;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\TransactionItem;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
-use App\Models\SiteSetting;
 
 class FrontendController extends Controller
 {
@@ -46,6 +47,14 @@ class FrontendController extends Controller
         $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();
         $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
         return view ('pages.frontend.details', compact('product','recommendations','sitesetting'));
+    }
+    public function category(Request $request, $slug)
+    {
+        $sitesetting = SiteSetting::get();
+        $category = Category::with(['products'])->where('slug', $slug)->first();
+        $product = $category->products()->orderBy('created_at')->paginate(9);
+        $products = Product::with(['galleries'])->inRandomOrder()->paginate(9);
+        return view ('pages.frontend.category', compact('products','category','sitesetting','product'));
     }
     
     public function cartAdd(Request $request, $id)
@@ -149,10 +158,5 @@ class FrontendController extends Controller
         }
 
     }
-    public function category(Request $request)
-    {
-        $sitesetting = SiteSetting::get();
-        $products = Product::with(['galleries'])->inRandomOrder()->paginate(9);
-        return view ('pages.frontend.category', compact('products','sitesetting'));
-    }
+    
 }

@@ -26,7 +26,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
-Route::get('/category', [FrontendController::class, 'category'])->name('category');
+Route::get('/category/{slug}', [FrontendController::class, 'category'])->name('category');
 
 
 

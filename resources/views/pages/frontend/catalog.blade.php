@@ -20,8 +20,8 @@
 						<div class="noo-simple-product banner_left">
 							<div class="simple-banner-left bottom_right" data-image="{{url('/frontend/images/banner/banner_11.jpg')}}">
 								<div class="banner-left-content">
-									<h3>new pendant lamp </h3>
-									<p>Lorem ipsum dolor sit amet adipiscing. </p>
+									<h3>{{ $category[0]['name'] }} </h3>
+									<p>{{ $category[1]['description'] }}</p>
 								</div>
 							</div>
 							<div class="noo-simple-content">
@@ -50,8 +50,8 @@
 						<div class="noo-simple-product banner_right">
 							<div class="simple-banner-left top_left" data-image="{{url('/frontend/images/banner/banner_12.jpg')}}">
 								<div class="banner-left-content">
-									<h3>Interior Landscaping </h3>
-									<p>Lorem ipsum dolor sit amet adipiscing. </p>
+									<h3>{{ $category[1]['name'] }}</h3>
+									<p>{{ $category[1]['description'] }}</p>
 								</div>
 							</div>
 							<div class="noo-simple-content">

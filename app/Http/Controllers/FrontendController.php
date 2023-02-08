@@ -36,8 +36,9 @@ class FrontendController extends Controller
         $products = Product::with(['galleries'])->where('categories_id',2)->inRandomOrder()->limit(4)->get();
         $products2 = Product::with(['galleries'])->where('categories_id',1)->inRandomOrder()->limit(4)->get();
         $products3 = Product::with(['galleries'])->inRandomOrder()->paginate(9);
+        $category = Category::get();
        
-        return view ('pages.frontend.catalog', compact('products','products2','products3','sitesetting'));
+        return view ('pages.frontend.catalog', compact('products','products2','products3','sitesetting','category'));
     }
 
 

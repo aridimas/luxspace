@@ -8,7 +8,7 @@
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="#" aria-label="current-page"> Category </a>
+          <a href="#" aria-label="current-page"> {{ $category->name }} </a>
         </li>
       </ul>
     </div>
@@ -20,8 +20,8 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="noo-section-title">
-									<br><br><h3><span>Bestseller</span></h3>
-									<p>hottest products of month</p>
+									<br><br><h3><span>{{ $category->name }}</span></h3>
+									<p>{{ $category->description }}</p>
 								</div>
 							</div>
 						</div>

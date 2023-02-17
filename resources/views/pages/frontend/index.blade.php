@@ -41,7 +41,7 @@
               ></button>
             </div>
             <img
-              src="{{ asset('/frontend/images/content/image-section-1.png')}}"
+              src="{{ route('index')}}/frontend/images/content/image-section-1.png"
               alt="hero 1"
               class="absolute inset-0 md:relative w-full h-full object-cover object-center"
             />

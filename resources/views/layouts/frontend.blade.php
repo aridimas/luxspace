@@ -29,7 +29,7 @@
   <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="{{url('/frontend/css/style.css')}}" type="text/css" media="all"/>
-  <link rel="stylesheet" href="{{url('css/custom.css')}}" type="text/css" media="all"/>
+  {{-- <link rel="stylesheet" href="{{url('/css/custom.css')}}" type="text/css" media="all"/> --}}
     <link rel="icon" href="{{ route('index')}}/{{ $sitesetting[0]['icon_url'] }}" />
     <meta name="theme-color" content="#000" />
     <link href="{{url('/frontend/css/app.minify.css')}}" rel="stylesheet">

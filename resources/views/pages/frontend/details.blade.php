@@ -62,7 +62,7 @@
           <div class="flex-1 px-4 md:p-6">
             <h2 class="text-5xl font-semibold mb-4">{{$product->name}}</h2>
             <p class="text-xl mb-4" >IDR {{number_format($product->price)}}</p>
-            <h6><a href="{{ route('category', $product->category->slug) }}"> Kategori : {{ $product->category->name }}</a></h6>
+            <h6>Kategori :<a href="{{ route('category', $product->category->slug) }}">{{ $product->category->name }}</a></h6>
             {{-- <a href="{{ route('category', $product->category->slug) }}"> --}}
             {{-- <h6 class="text-xl font-semibold mb-4">Kategori : {{ $product->category->name }}</h6> --}}
   
